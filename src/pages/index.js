@@ -1,19 +1,47 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import App from '../components/App';
+import { graphql } from 'gatsby';
+import { ShopContext } from '../ShopProvider';
+import './index.css';
 
-import Layout from '../components/layout'
-import Image from '../components/image'
+class IndexPage extends React.Component {
+  render() {
+    return (
+      <ShopContext.Consumer>
+        {({ skus, cart, buildSkus }) => (
+            <App {...this.props} skus={skus} cart={cart} buildSkus={buildSkus} />
+          )
+        }
+      </ShopContext.Consumer>
+    );
+  };
+};
 
-const IndexPage = () => (
-  <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export const query = graphql`
+  query {
+    allStripeSku(
+      filter: {
+        product: { 
+          name: {eq: "Dragon"}
+        }
+      }
+    ) {
+      edges {
+        node {
+          id
+          object
+          attributes {
+            name
+          }
+          image
+          price
+          product {
+            name
+          }
+        }
+      }
+    }
+  }
+`;
 
-export default IndexPage
+export default IndexPage;
