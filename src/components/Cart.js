@@ -37,8 +37,8 @@ class Cart extends React.Component {
 
     this.state.stripe.redirectToCheckout({
       items,
-      successUrl: 'http://localhost:8000#success',
-      cancelUrl: 'http://localhost:8000#cancelled',
+      successUrl: 'https://dragon-mart.netlify.com/#success',
+      cancelUrl: 'https://dragon-mart.netlify.com/#cancelled',
     }).then(function (result) {
       // Display result.error.message to your customer
       console.error(result);

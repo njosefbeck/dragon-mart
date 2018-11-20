@@ -82,7 +82,11 @@ class IndexPage extends React.Component {
 
   renderImage() {
     if (!this.state.selection.sku) {
-      return 'No image';
+      return 'No matching sku :(';
+    }
+
+    if (!this.state.selection.sku.image.length) {
+      return 'We have no image :(';
     }
 
     return <img src={this.state.selection.sku.image} alt="Dragon" />;
