@@ -6,8 +6,14 @@ class Cart extends React.Component {
     super(props);
 
     this.state = {
-      stripe: window.Stripe('pk_test_U78fJAAuXr0aN5ETF5qSNR1n', {betas: ['checkout_beta_3']})
+      stripe: null
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      stripe: window.Stripe('pk_test_U78fJAAuXr0aN5ETF5qSNR1n', {betas: ['checkout_beta_3']}) 
+    })
   }
 
   renderStatus() {
