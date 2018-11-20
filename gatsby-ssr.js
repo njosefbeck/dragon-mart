@@ -3,14 +3,3 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
-
-import React from "react"
-import { ShopProvider } from "./src/ShopProvider";
-
-export const wrapRootElement = ({ element }) => {
-  return (
-    <ShopProvider>
-      {element}
-    </ShopProvider>
-  )
-};

@@ -12,7 +12,7 @@ export function calculateProductTotals(items) {
     .reduce((total, currentAmount) => total + currentAmount);
   
   const totalPrice = items
-    .map(item => item.price)
+    .map(item => item.totalPrice)
     .reduce((total, currentPrice) => total + currentPrice);
 
   return {
@@ -21,6 +21,6 @@ export function calculateProductTotals(items) {
   }
 }
 
-export function pluralize(item) {
-  return item === 1 ? '' : 's';
+export function pluralize(amount, singularString) {
+  return amount === 1 ? singularString : `${singularString}s`;
 }
