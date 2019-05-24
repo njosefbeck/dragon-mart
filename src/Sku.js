@@ -15,11 +15,13 @@ class Sku {
   }
 
   get size() {
+    // eslint-disable-next-line
     const [size, color, product] = this.attributes.name.split(' ');
     return size;
   }
 
   get color() {
+    // eslint-disable-next-line
     const [size, color, product] = this.attributes.name.split(' ');
     return color;
   }
