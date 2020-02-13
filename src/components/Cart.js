@@ -1,4 +1,5 @@
 import React from 'react';
+import {loadStripe} from '@stripe/stripe-js';
 import { pluralize, calculateProductTotals } from '../helpers';
 
 class Cart extends React.Component {
@@ -8,12 +9,21 @@ class Cart extends React.Component {
     this.state = {
       stripe: null
     };
+
+    this.loadStripeLib = this.loadStripeLib.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      stripe: window.Stripe('pk_test_U78fJAAuXr0aN5ETF5qSNR1n', {betas: ['checkout_beta_3']}) 
-    })
+    this.loadStripeLib()
+  }
+
+  async loadStripeLib() {
+    try {
+      const stripe = await loadStripe('pk_test_U78fJAAuXr0aN5ETF5qSNR1n');
+      this.setState({ stripe });
+    } catch {
+      // do nothing
+    }
   }
 
   renderStatus() {

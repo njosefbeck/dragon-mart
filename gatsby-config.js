@@ -28,7 +28,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    `gatsby-plugin-stripe`,
     {
       resolve: `gatsby-source-stripe`,
       options: {

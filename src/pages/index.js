@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import { navigate } from "gatsby";
 import uuidv4 from 'uuid/v4';
 import Sku from '../Sku';
+import '@stripe/stripe-js';
 import './index.css';
 
 import OptionsForm from '../components/OptionsForm';
