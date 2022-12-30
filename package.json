@@ -6,7 +6,7 @@
   "dependencies": {
     "@stripe/stripe-js": "1.0.0-beta.9",
     "dotenv": "8.2.0",
-    "gatsby": "2.19.17",
+    "gatsby": "2.32.13",
     "gatsby-image": "2.2.41",
     "gatsby-plugin-manifest": "2.2.41",
     "gatsby-plugin-offline": "3.0.34",
